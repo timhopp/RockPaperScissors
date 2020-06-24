@@ -3,27 +3,20 @@ let game = {
   computerChoice: 'rock',
 }
 
-function play() {
+
+function play(playersChosen) {
   computerRandom()
-  game.playerChoice = `${game.playerChoice}`;
+  if(playersChosen == 'rock'){
+    game.playerChoice = 'rock';
+  } else if (playersChosen == 'paper'){
+    game.playerChoice = 'paper'
+  } else if (playersChosen == 'scissors'){
+    game.playerChoice = 'scissors';
+  }
   game.computerChoice = `${game.computerChoice}`;
   playLogic();
 }
 
-function rock() {
-  game.playerChoice = "rock";
-  play();
-}
-
-function scissors() {
-  game.playerChoice = "scissors";
-  play();
-}
-
-function paper() {
-  game.playerChoice = "paper";
-  play();
-}
 
 function computerRandom() {
   let computerhasChose = Math.floor(Math.random() * 4)
@@ -41,47 +34,41 @@ function computerRandom() {
 
 function playLogic(){
 let winnerElem = document.getElementById("winner");
-let userImg = document.getElementById("user-img");
-let compImg = document.getElementById("computer-img");
+let playerPick = game.playerChoice;
+let compPick = game.computerChoice;
 
-  if(game.playerChoice == "rock" && game.computerChoice == "scissors"){
+
+  if(playerPick == "rock" && compPick == "scissors" || playerPick == "paper" && compPick == "rock" || playerPick == "scissors" && compPick == "paper"){
      winnerElem.innerText= "Player has won!";
-     userImg.src = "icons8-rock-80.png";
-     compImg.src = "icons8-barber-scissors-80.png";
 
-  } else if(game.playerChoice == "paper" && game.computerChoice == "rock"){
-    winnerElem.innerText= "Player has won!";
-    userImg.src = "icons8-paper-plane-64.png";
-    compImg.src = "icons8-rock-80.png";
-    userImg.classList.add('winner-glow');
-  } else if(game.playerChoice == "scissors" && game.computerChoice == "paper"){
-    winnerElem.innerText= "Player has won!";
-    userImg.src = "icons8-barber-scissors-80.png";
-    compImg.src = "icons8-paper-plane-64.png";
-    userImg.classList.add('winner-glow');
-  } else if(game.playerChoice == "scissors" && game.computerChoice == "rock"){
+  } else if(playerPick == "scissors" && compPick== "rock" || playerPick == "rock" && compPick == "paper" || playerPick == "paper" && compPick == "scissors"){ 
     winnerElem.innerText= "Computer has won!";
-    userImg.src = "icons8-barber-scissors-80.png";
-    compImg.src = "icons8-rock-80.png";
-  } else if(game.playerChoice == "rock" && game.computerChoice == "paper"){
-    winnerElem.innerText= "Computer has won!";
-    userImg.src = "icons8-rock-80.png";
-    compImg.src = "icons8-paper-plane-64.png";
-  } else if(game.playerChoice == "paper" && game.computerChoice == "scissors"){
-    winnerElem.innerText= "Computer has won!";
-    userImg.src = "icons8-paper-plane-64.png";
-    compImg.src = "icons8-barber-scissors-80.png";
-  } else if (game.playerChoice == "paper" && game.computerChoice == "paper"){
-    winnerElem.innerText= "Tie!";
-    userImg.src = "icons8-paper-plane-64.png";
-    compImg.src = "icons8-paper-plane-64.png";
-  } else if (game.playerChoice == "rock" && game.computerChoice == "rock"){
-    winnerElem.innerText= "Tie!";
-    userImg.src = "icons8-rock-80.png";
-    compImg.src = "icons8-rock-80.png";
-  } else if (game.playerChoice == "scissors" && game.computerChoice == "scissors"){
-    winnerElem.innerText= "Tie!";
-    userImg.src = "icons8-barber-scissors-80.png";
-    compImg.src = "icons8-barber-scissors-80.png";
-  }
+
+  } else if (playerPick == "paper" && compPick == "paper" || playerPick == "rock" && compPick == "rock" || playerPick == "scissors" && compPick == "scissors"){
+    winnerElem.innerText= "Tie!";} 
+  draw();
+}
+
+
+
+function draw(){
+let userImg = document.getElementById("user-img");
+let compImg = document.getElementById("computer-img")
+
+
+if(game.playerChoice == 'rock'){
+  userImg.src = "icons8-rock-80.png"
+} else if (game.playerChoice == 'scissors'){
+  userImg.src = "icons8-barber-scissors-80.png"
+} else if (game.playerChoice == 'paper'){
+  userImg.src = "icons8-paper-plane-64.png";
+}
+
+if(game.computerChoice == 'rock'){
+  compImg.src = "icons8-rock-80.png"
+} else if (game.computerChoice =='scissors'){
+  compImg.src= "icons8-barber-scissors-80.png";
+} else if (game.computerChoice =='paper'){
+  compImg.src = "icons8-paper-plane-64.png";
+}
 }

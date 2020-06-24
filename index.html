@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap" rel="stylesheet">
 
     <title>Rock, Paper, Scissors</title>
   </head>
@@ -18,23 +19,23 @@
           <h1>Rock, Paper, Scissors</h1>
         </div>
       </div>
-      <div class= "row justify-content-center card">
+      <div class= "row justify-content-center">
         <div class="col-12 col-md-4 mx-auto text-center p-5">
           <div id = "winner" class= "row justify-content-center p-5">
-          <h3>Who will win?</h3>
+          Who will win?
           </div>
           <div class="row justify-content-center">
             <div class="col-6">
           <h4>User</h4>
-          <img id ='user-img'class= "center-block p-1" src ="icons8-rock-80.png"></div>
+          <img id ='user-img'class= "center-block p-1 gameImg" src ="icons8-rock-80.png"></div>
           <div class="col-6">
           <h4>Computer</h4>
-          <img id ='computer-img'class= "center-block p-1" src ="icons8-rock-80.png"></div>
+          <img id ='computer-img' class= "center-block p-1 gameImg" src ="icons8-rock-80.png"></div>
         </div>
           <div class= "row justify-content-center pt-5">
-            <button id = "rockbtn" onclick="rock()" class= "btn btn-warning p-2 m-2">Rock</button>
-            <button id = "scissorsbtn" onclick="scissors()" class= "btn btn-warning p-2 m-2">Scissors</button>
-            <button id = "paperbtn" onclick="paper()" class= "btn btn-warning p-2 m-2">Paper</button>
+            <button id = "rockbtn" onclick="play('rock')" class= "btn btn-warning p-2 m-2">Rock</button>
+            <button id = "scissorsbtn" onclick="play('scissors')" class= "btn btn-warning p-2 m-2">Scissors</button>
+            <button id = "paperbtn" onclick="play('paper')" class= "btn btn-warning p-2 m-2">Paper</button>
           </div>
         </div>
       </div>

@@ -1,2 +1,9 @@
+body{
+  background-color: #565264;
+  color: #EE964B;
+  font-family: 'Holtwood One SC', serif;
+}
+
+
 .winning-glow{
   filter: drop-shadow(2px 4px 6px #00ffb3);
